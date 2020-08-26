@@ -4,7 +4,7 @@
     <input type="text" name="name" class="form-control" required value="{{ $brewery->name ?? old('name') }}">
 </div>
 <div class="form-group">
-    <brewery-tags-input>
+    <brewery-tags-input :initial-tags='@json($tagNames ?? [])' :autocomplete-items='@json($allTagNames ?? [])'>
     </brewery-tags-input>
 </div>
 <div class="form-group">
