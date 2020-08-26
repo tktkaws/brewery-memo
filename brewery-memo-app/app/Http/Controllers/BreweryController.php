@@ -29,4 +29,12 @@ class BreweryController extends Controller
 
         return redirect()->route('breweries.index');
     }
+
+    public function edit(Brewery $brewery)
+    {
+        return view('breweries.edit', [
+            'brewery' => $brewery,
+        ]);
+
+    }
 }
