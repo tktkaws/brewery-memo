@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBreweriesTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateBreweriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('breweries', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('body');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('brewery_id');
+            $table->foreign('brewery_id')->references('id')->on('breweries')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateBreweriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breweries');
+        Schema::dropIfExists('likes');
     }
 }
