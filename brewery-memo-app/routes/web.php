@@ -21,3 +21,5 @@ Route::prefix('breweries')->name('breweries.')->group(function () {
     Route::put('/{brewery}/like', 'BreweryController@like')->name('like')->middleware('auth');
     Route::delete('/{brewery}/like', 'BreweryController@unlike')->name('unlike')->middleware('auth');
 });
+
+Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
