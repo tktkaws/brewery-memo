@@ -12,4 +12,7 @@
 */
 
 Auth::routes();
+
 Route::get('/', 'BreweryController@index')->name('breweries.index');
+Route::resource('/breweries', 'BreweryController')->except(['index', 'show'])->middleware('auth');
+Route::resource('/breweries', 'BreweryController')->only(['show']);
