@@ -53,7 +53,7 @@
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                {{ $brewery->title }}を削除します。よろしいですか？
+                                {{ $brewery->name }}を削除します。よろしいですか？
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>

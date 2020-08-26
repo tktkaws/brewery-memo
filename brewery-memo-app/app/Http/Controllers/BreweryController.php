@@ -37,4 +37,17 @@ class BreweryController extends Controller
         ]);
 
     }
+
+    public function update(BreweryRequest $request, Brewery $brewery)
+    {
+        $brewery->fill($request->all())->save();
+
+        return redirect()->route('breweries.index');
+    }
+
+    public function destroy(Brewery $brewery)
+    {
+        $brewery->delete();
+        return redirect()->route('breweries.index');
+    }
 }
