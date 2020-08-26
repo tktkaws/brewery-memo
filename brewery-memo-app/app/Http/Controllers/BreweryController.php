@@ -13,4 +13,9 @@ class BreweryController extends Controller
 
         return view('breweries.index', ['breweries' => $breweries]);
     }
+
+    public function create()
+    {
+        return view('breweries.create');
+    }
 }
