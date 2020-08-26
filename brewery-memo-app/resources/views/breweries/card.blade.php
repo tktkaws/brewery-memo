@@ -72,7 +72,8 @@
 
     <div class="card-body pt-0 pb-2 pl-3">
         <div class="card-text">
-            <brewery-like　:initial-is-liked-by='@json($brewery->isLikedBy(Auth::user()))'>
+            <brewery-like　 :initial-is-liked-by='@json($brewery->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($brewery->count_likes)'>
             </brewery-like>
         </div>
     </div>
