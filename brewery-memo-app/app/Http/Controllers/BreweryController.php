@@ -50,4 +50,9 @@ class BreweryController extends Controller
         $brewery->delete();
         return redirect()->route('breweries.index');
     }
+
+    public function show(Brewery $brewery)
+    {
+        return view('breweries.show', ['brewery' => $brewery]);
+    }
 }
