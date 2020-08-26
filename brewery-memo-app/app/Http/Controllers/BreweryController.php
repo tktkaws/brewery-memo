@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class BreweryController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Brewery::class, 'brewery');
+    }
+
     public function index()
     {
         $breweries = Brewery::all()->sortByDesc('created_at');
