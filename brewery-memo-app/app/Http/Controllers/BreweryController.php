@@ -60,4 +60,25 @@ class BreweryController extends Controller
     {
         return view('breweries.show', ['brewery' => $brewery]);
     }
+
+    public function like(Request $request, Brewery $brewery)
+    {
+        $brewery->likes()->detach($request->user()->id);
+        $brewery->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $brewery->id,
+            'countLikes' => $brewery->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Brewery $brewery)
+    {
+        $brewery->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $brewery->id,
+            'countLikes' => $brewery->count_likes,
+        ];
+    }
 }
