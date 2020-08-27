@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -37,6 +38,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function breweries(): HasMany
+    {
+        return $this->hasMany('App\Brewery');
+    }
+
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Brewery', 'likes')->withTimestamps();
+    }
 
     public function followers(): BelongsToMany
     {
