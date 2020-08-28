@@ -24,12 +24,12 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{ route("breweries.edit", ['brewery' => $brewery]) }}">
-                        <i class="fas fa-pen mr-1"></i>記事を更新する
+                        <i class="fas fa-pen mr-1"></i>投稿を更新する
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" data-toggle="modal"
                         data-target="#modal-delete-{{ $brewery->id }}">
-                        <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+                        <i class="fas fa-trash-alt mr-1"></i>投稿を削除する
                     </a>
                 </div>
             </div>
