@@ -1,10 +1,6 @@
 <template>
   <div>
-    <button
-      class="btn-sm shadow-none border border-primary p-2"
-      :class="buttonColor"
-      @click="clickFollow"
-    >
+    <button class="btn-sm p-2" :class="buttonColor" @click="clickFollow">
       <i class="mr-1" :class="buttonIcon"></i>
       {{ buttonText }}
     </button>
@@ -33,7 +29,7 @@ export default {
   },
   computed: {
     buttonColor() {
-      return this.isFollowedBy ? "bg-primary text-white" : "bg-white";
+      return this.isFollowedBy ? "btn-mdb-color" : "btn-blue-grey";
     },
     buttonIcon() {
       return this.isFollowedBy ? "fas fa-user-check" : "fas fa-user-plus";

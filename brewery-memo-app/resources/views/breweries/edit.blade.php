@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '記事更新')
+@section('title', '更新')
 
 @include('nav')
 
@@ -15,7 +15,7 @@
                         <form method="POST" action="{{ route('breweries.update', ['brewery' => $brewery]) }}">
                             @method('PATCH')
                             @include('breweries.form')
-                            <button type="submit" class="btn blue-gradient btn-block">更新する</button>
+                            <button type="submit" class="btn btn-mdb-color btn-block">更新する</button>
                         </form>
                     </div>
                 </div>
