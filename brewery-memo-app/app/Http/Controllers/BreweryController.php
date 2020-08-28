@@ -17,7 +17,8 @@ class BreweryController extends Controller
 
     public function index()
     {
-        $breweries = Brewery::all()->sortByDesc('created_at');
+        $breweries = Brewery::all()->sortByDesc('created_at')
+        ->load(['user', 'likes', 'tags']);
 
         return view('breweries.index', ['breweries' => $breweries]);
     }
