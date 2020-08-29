@@ -22,6 +22,7 @@ Route::prefix('register')->name('register.')->group(function () {
 });
 
 Route::get('/', 'BreweryController@index')->name('breweries.index');
+Route::get('search_index', 'BreweryController@searchIndex')->name('breweries.search_index');
 Route::resource('/breweries', 'BreweryController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/breweries', 'BreweryController')->only(['show']);
 
