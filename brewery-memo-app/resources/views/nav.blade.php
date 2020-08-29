@@ -61,7 +61,7 @@
         <!-- Search form -->
         <form class="form-inline" method="GET" action="{{ route('breweries.search_index') }}">
             <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" name="name" placeholder="検索" aria-label="Search">
+                <input class="form-control mr-sm-2" type="text" name="search_word" placeholder="検索" aria-label="Search">
             </div>
         </form>
         <!-- Search form -->
