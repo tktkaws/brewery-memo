@@ -23,6 +23,22 @@ class BreweryController extends Controller
         return view('breweries.index', ['breweries' => $breweries]);
     }
 
+    public function searchIndex(Request $request)
+    {
+        $keyword = $request->input('search_word');
+        $query = Brewery::query();
+
+        if (!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%")
+            ->orWhere('body', 'LIKE', "%{$keyword}%")
+            ->orWhereHas('tags', function($query) use ($keyword) {
+                $query->where('name','like', "%{$keyword}%");}
+            );
+        }
+        $breweries = $query->get();
+        return view('breweries.search_index', ['breweries' => $breweries, 'keyword' => $keyword]);
+    }
+
     public function create()
     {
         $allTagNames = Tag::all()->map(function ($tag) {
