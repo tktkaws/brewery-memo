@@ -4,8 +4,6 @@ jobs:
     docker:
       - image: circleci/php:7.3-node-browsers
     steps:
-
-
       - checkout
       - run: composer install -n --prefer-dist
       - run: npm ci
